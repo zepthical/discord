@@ -16,7 +16,7 @@ intents.message_content = True
 bot = discord.Client(intents=intents)
 
 def get_keys_file():
-    url = f"https://api.github.com/repos/{REPO_OWNER}/{REPO_NAME}/contents/{FILE_PATH}?ref={BRANCH}"
+    url = f"https://raw.githubusercontent.com/zepthical/k/refs/heads/main/Keys.txt"
     headers = {"Authorization": f"token {GITHUB_TOKEN}"}
     res = requests.get(url, headers=headers)
     if res.status_code == 200:
