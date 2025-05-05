@@ -16,13 +16,12 @@ intents.message_content = True
 bot = discord.Client(intents=intents)
 
 def get_keys_file():
-    url = f"https://raw.githubusercontent.com/zepthical/k/refs/heads/main/Keys.txt"
+    url = f"https://raw.githubusercontent.com/{REPO_OWNER}/{REPO_NAME}/{BRANCH}/{FILE_PATH}"
     headers = {"Authorization": f"token {GITHUB_TOKEN}"}
     res = requests.get(url, headers=headers)
     if res.status_code == 200:
-        data = res.json()
-        content = b64encode(res.content).decode("utf-8")
-        return data["sha"], b64decode(data["content"]).decode("utf-8").splitlines()
+        content = res.text  # Directly get the raw content as text
+        return None, content.splitlines()  # Return lines as a list
     else:
         return None, []
 
