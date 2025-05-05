@@ -5,8 +5,9 @@ from base64 import b64encode
 import os
 import time  # To handle timestamps
 
-DISCORD_BOT_TOKEN = "MTM2ODg0NDIyOTExMTE4OTU1NQ.GEVGqh.D1VLAPtC4oj-oPiqj5-sRwM9UOfnXYEmBvJIew"
-GITHUB_TOKEN = "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"
+
+DISCORD_BOT_TOKEN = os.getenv('DISCORD_BOT_TOKEN')
+GITHUB_TOKEN = os.getenv('GITHUB_TOKEN')
 REPO_OWNER = "zepthical"
 REPO_NAME = "k"
 FILE_PATH = "Keys.txt"
